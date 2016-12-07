@@ -7,7 +7,16 @@ public:
 	StringTransformer(void);
 	~StringTransformer(void);
 
-	static void toUpper(std::string& aInOutput);
-	static void transformToUnaccented( char& character);
+	/*
+	*	Convert text to its uppercase equivalent
+	*	@param text Input message
+	*/
+	static void toUpper(std::string& text);
+
+	/*
+	*	Convert input character to its unaccented equivalent
+	*	@param letter Input alphabetic character
+	*/
+	static void transformToUnaccented( char& letter);
 };
 

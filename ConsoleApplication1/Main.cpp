@@ -1,5 +1,4 @@
-﻿// ConsoleApplication1.cpp : Defines the entry point for the console application.
-//
+﻿// Vigenere cipher algorithm implementation
 
 #include "stdafx.h"
 #include <string>
@@ -16,8 +15,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	//std::fstream f("vtabla.dat");
 	
 	std::string message = "";
-	std::string password = "";
-	std::string passwordText = "";
+	std::string key = "";
+	std::string keyWord = "";
 
 	VigenereTable table;
 	if(table.readTable() < 0)
@@ -26,19 +25,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		return -1;
 	}
 
-	printf("Type a message here to be encrypt it. Message size is must be less then 255 character \n");
+	printf("Type a message here to be encrypted. Message must be less than 255 characters \n");
 
 	do
 	{
 		message = TextReader::read(true);
 		if(message.size() > 255 )
 		{
-			printf("Message size is must be less then 255 character \n");
+			printf("Message must be less than 255 characters \n");
 		}
 
 		if( message.size() < 1 )
 		{
-			printf("Type a message here to be encrypt it. \n");
+			printf("Type a message here to be encrypted. \n");
 		}
 		
 	}while(message.size() > 255 || message.size() < 1);
@@ -46,35 +45,35 @@ int _tmain(int argc, _TCHAR* argv[])
 	StringTransformer::toUpper(message);
 	printf("Message: %s  \n",message.data());
 
-	printf("Password: \n");
+	printf("Key: \n");
 	do
 	{
-		password = TextReader::read();
-		if(password.size() > 5 )
+		key = TextReader::read();
+		if(key.size() > 5 )
 		{
-			printf("Password size is must be less then 6 character \n");
+			printf("Key must be maximum 5 characters \n");
 		}
 
-		if( password.size() < 1 )
+		if( key.size() < 1 )
 		{
-			printf("Password: \n");
+			printf("Key: \n");
 		}
 
-	}while(password.size() > 5 || password.size() < 1);
+	}while(key.size() > 5 || key.size() < 1);
 	
-	StringTransformer::toUpper(password);
+	StringTransformer::toUpper(key);
 	
 	for(int i=0; i<message.size(); i++)
 	{
-		passwordText.push_back(password[i%password.size()]);
+		keyWord.push_back(key[i%key.size()]);
 	}
-	printf("Password text: %s  \n",passwordText.data());
+	printf("Keyword: %s  \n",keyWord.data());
 
 	for(int i=0;i<message.size();i++)
 	{
-		message[i] = table.getEncryptedLetter(message[i], passwordText[i]);
+		message[i] = table.getEncryptedLetter(message[i], keyWord[i]);
 	}
-	printf("Encrypted text: %s  \n",message.data());
+	printf("Cipher text: %s  \n",message.data());
 	
 
 	return 0;

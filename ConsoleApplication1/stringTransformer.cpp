@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "stringTransformer.h"
 
-#include <stdio.h>
-#include <ctype.h>
-
 StringTransformer::StringTransformer(void)
 {
 }
@@ -13,12 +10,12 @@ StringTransformer::~StringTransformer(void)
 {
 }
 
-void StringTransformer::toUpper( std::string& aInOutput )
+void StringTransformer::toUpper( std::string& text )
 {
 	
-	for(int i=0;i<aInOutput.size();i++)
+	for(int i=0;i<text.size();i++)
 	{
-		aInOutput[i] = toupper(aInOutput[i]);
+		text[i] = toupper(text[i]);
 	}
 	
 }

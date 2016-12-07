@@ -1,9 +1,8 @@
 #include "stdafx.h"
-#include "textReader.h"
 
 #include <iostream>
-#include <locale>
 
+#include "textReader.h"
 #include "stringTransformer.h"
 
 TextReader::TextReader(void)
@@ -18,7 +17,6 @@ TextReader::~TextReader(void)
 std::string TextReader::read(bool investigation)
 {
 	int i=0;
-	int skippedChar = 0;
 	char c;
 	std::string s;
 	while(std::cin.get(c))
