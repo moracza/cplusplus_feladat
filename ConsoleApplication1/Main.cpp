@@ -6,7 +6,7 @@
 
 #include "stringTransformer.h"
 #include "vigenereTable.h"
-#include "textReader.h"
+#include "textStream.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -29,7 +29,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	do
 	{
-		message = TextReader::read(true);
+		message = TextStream::read(true);
 		if(message.size() > 255 )
 		{
 			printf("Message must be less than 255 characters \n");
@@ -48,7 +48,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("Key: \n");
 	do
 	{
-		key = TextReader::read();
+		key = TextStream::read();
 		if(key.size() > 5 )
 		{
 			printf("Key must be maximum 5 characters \n");
@@ -74,7 +74,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		message[i] = table.getEncryptedLetter(message[i], keyWord[i]);
 	}
 	printf("Cipher text: %s  \n",message.data());
-	
+	TextStream::write(message);
 
 	return 0;
 }

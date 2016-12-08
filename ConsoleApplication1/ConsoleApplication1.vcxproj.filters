@@ -30,7 +30,7 @@
     <ClInclude Include="vigenereTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="textReader.h">
+    <ClInclude Include="textStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClCompile Include="vigenereTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="textReader.cpp">
+    <ClCompile Include="textStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
