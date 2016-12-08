@@ -12,7 +12,6 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	setlocale(LC_ALL, "");
 	system("chcp 1250");
-	//std::fstream f("vtabla.dat");
 	
 	std::string message = "";
 	std::string key = "";
